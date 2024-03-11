@@ -228,6 +228,14 @@ dev = ["pre-commit", "tox"]
 testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
+name = "pycodestyle"
+version = "2.11.1"
+description = "Python style guide checker"
+category = "dev"
+optional = false
+python-versions = ">=3.8"
+
+[[package]]
 name = "pytest"
 version = "8.1.1"
 description = "pytest: simple powerful testing with Python"
@@ -338,7 +346,7 @@ email = ["email-validator"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "65e6aa9cd952b1dfffd1639ace7284e82ca7c56ded354301ffacd788d48d1c47"
+content-hash = "cdcf44ba9a42607753e7e07cd42fd1b95abfa1d07fe37dd79f583b6667bfc1cd"
 
 [metadata.files]
 alembic = []
@@ -361,6 +369,7 @@ mako = []
 markupsafe = []
 packaging = []
 pluggy = []
+pycodestyle = []
 pytest = []
 sqlalchemy = []
 tomli = []
