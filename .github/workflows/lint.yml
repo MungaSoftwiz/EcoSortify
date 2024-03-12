@@ -1,0 +1,38 @@
+name: python lint CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+
+    strategy:
+      matrix:
+        python-version: [3.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install python3-poetry
+        run: sudo apt-get update && sudo apt-get install python3-poetry -y
+
+      - name: Install dependencies and run linting
+        run: |
+          poetry install
+          poetry run pycodestyle --ignore=E402 .
