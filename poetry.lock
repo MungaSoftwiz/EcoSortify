@@ -236,6 +236,20 @@ optional = false
 python-versions = ">=3.8"
 
 [[package]]
+name = "pyjwt"
+version = "2.8.0"
+description = "JSON Web Token implementation in Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+crypto = ["cryptography (>=3.4.0)"]
+dev = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.4.0)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "pre-commit"]
+docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
+tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
+
+[[package]]
 name = "pytest"
 version = "8.1.1"
 description = "pytest: simple powerful testing with Python"
@@ -346,7 +360,7 @@ email = ["email-validator"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "cdcf44ba9a42607753e7e07cd42fd1b95abfa1d07fe37dd79f583b6667bfc1cd"
+content-hash = "5eb9ecc492301c19adfb40d02fbb56cc2e33cb247aad8c18b760f8b9a49bd325"
 
 [metadata.files]
 alembic = []
@@ -370,6 +384,7 @@ markupsafe = []
 packaging = []
 pluggy = []
 pycodestyle = []
+pyjwt = []
 pytest = []
 sqlalchemy = []
 tomli = []
