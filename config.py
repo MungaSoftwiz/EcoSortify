@@ -13,7 +13,7 @@ class Config:
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ECOSORTIFY_MAIL_SUBJECT_PREFIX = '[Ecosortify]'
-    ECOSORTIFY_MAIL_SENDER = 'Ecosortify Admin <ecosortify@placeholder.com' #TBD
+    ECOSORTIFY_MAIL_SENDER = 'Ecosortify Admin <ecosortify@placeholder.com'
     ECOSORTIFY_ADMIN = os.environ.get('ECOSORTIFY_ADMIN')
 
     @staticmethod
