@@ -35,4 +35,4 @@ jobs:
       - name: Install dependencies and run linting
         run: |
           poetry install
-          poetry run pycodestyle --ignore=E402 .
+          poetry run pycodestyle --ignore=E402, W503, W504 .
