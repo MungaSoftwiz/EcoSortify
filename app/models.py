@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """ Creates database models for the app """
+from flask import current_app
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
+import jwt
 
 
 class User(db.Model):
@@ -26,6 +28,40 @@ class User(db.Model):
 
     def verify_password(self):
         return check_password_hash(self.password_hash, password)
+
+    def generate_confirmation_token(self, expiration=600):
+        """ Generation of a confirmation token """
+        token = jwt.encode(
+            {
+                "confirm": self.id,
+                "exp": datetime.utcnow()
+                + datetime.timedelta(seconds=expiration)
+            },
+            current_app.config['SECRET_KEY'],
+            algorithm="HS256"
+        )
+        return token
+
+        def confirm(self, token):
+            """ Confirm token """
+            try:
+                data = jwt.decode(
+                    token,
+                    current_app.config['SECRET_KEY'],
+                    algorithms=["HS256"]
+                )
+            except jwt.ExpiredSignatureError:
+                print("The token has expired.")
+                return False
+            except jwt.InvalidTokenError:
+                print("The token is invalid")
+                return False
+            if data.get('confirm') != self.id:
+                return False
+        self.confirmed = True
+        db.session.add(self)
+        db.session.commit()
+        return True
 
 
 class Post(db.Model):
