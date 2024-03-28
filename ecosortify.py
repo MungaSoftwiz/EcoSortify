@@ -3,6 +3,7 @@
 import os
 from app import create_app, db
 from flask_migrate import Migrate
+from app.models import User, Post, Comment
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 database_migrate = Migrate(app, db, include_schema=True)

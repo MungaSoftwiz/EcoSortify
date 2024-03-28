@@ -6,6 +6,16 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     """ Configures an app """
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.mailgun.org')
+    MAIL_PORT = os.environ.get('MAIL_PORT', '587')
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'True')
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    ECOSORTIFY_MAIL_SUBJECT_PREFIX = '[Ecosortify]'
+    ECOSORTIFY_MAIL_SENDER = 'Ecosortify Admin <ecosortify@placeholder.com'
+    ECOSORTIFY_ADMIN = os.environ.get('ECOSORTIFY_ADMIN')
+
     @staticmethod
     def init_app(app):
         pass
