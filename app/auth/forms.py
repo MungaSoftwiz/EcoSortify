@@ -11,7 +11,7 @@ class LoginForm(FlaskForm):
     """ Login form """
     email = StringField('Email', validators=[DataRequired(), Lemgth(1, 64),
                         Email()])
-    keep_logged_in = Boolean Field('Keep me logged in')
+    keep_logged_in = BooleanField('Keep me logged in')
     password = StringField('Password', validators=[DataRequired()])
     submit = SubmitField('Log In')
 
