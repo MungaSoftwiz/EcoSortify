@@ -118,7 +118,7 @@ Flask = "*"
 
 [[package]]
 name = "flask-migrate"
-version = "4.0.6"
+version = "4.0.7"
 description = "SQLAlchemy database migrations for Flask applications using Alembic."
 category = "main"
 optional = false
@@ -270,7 +270,7 @@ testing = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygm
 
 [[package]]
 name = "sqlalchemy"
-version = "2.0.28"
+version = "2.0.29"
 description = "Database Abstraction Library"
 category = "main"
 optional = false
